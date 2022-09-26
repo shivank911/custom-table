@@ -10,7 +10,7 @@ class Cell extends React.Component {
       let id = this.props.cellData.id;
       let value = this.state.value;
       let data = {key:key,value:value,id:id}
-      this.props.cellData.changeCell(data);
+      this.props.cellData.currentState(data);
   }
   handleChange(e) {
     this.setState({ value: e.currentTarget.value });
@@ -19,7 +19,7 @@ class Cell extends React.Component {
     //   console.log(this.props.cellData.edit);
     return (
       <td key={this.props.key} onKeyDown={this.constructObject.bind(this)}>
-        {this.props.cellData.edit === true ? (
+        {(this.props.cellData.edit === true && this.props.cellData.key!=='id' && this.props.cellData.key !== 'undefined') ? (
           this.props.cellData.value === null ? null : (
             <input
               onChange={this.handleChange.bind(this)}

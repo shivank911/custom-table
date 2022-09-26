@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Table from "./Components/Table";
-
+// eslint-disable-next-line
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ class App extends React.Component {
     };
   }
   changeEdit(data) {
-    console.log(data);
+    // console.log(data);
     let updatedData = this.state.data.map((elem) => {
       if (elem.id === data.id) {
         elem.canEdit = true;
@@ -24,7 +24,7 @@ class App extends React.Component {
     this.setState({ data: updatedData });
   }
   changeEditOnEnter(data) {
-    console.log(data);
+    // console.log(data);
     let updatedData = this.state.data.map((elem) => {
       if (elem.id === data.id) {
         elem.canEdit = false;
@@ -34,6 +34,7 @@ class App extends React.Component {
     this.setState({ data: updatedData });
   }
   handleChange = (data) => {
+    // console.log(data);
     let updatedData = this.state.data.map((elem) => {
       if (elem.id === data.id) {
         elem[data.key] = data.value;
@@ -43,11 +44,13 @@ class App extends React.Component {
     this.setState({ data: updatedData });
   };
   componentDidMount() {
+    // eslint-disable-next-line
     this.state.data.map((el) => {
       el.canEdit = false;
     });
   }
   render() {
+    // console.log(this.state.data);
     return (
       <Table
         data={this.state.data}
